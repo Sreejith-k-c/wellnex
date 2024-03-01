@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:wellnex/profile_page/edit_profile.dart';
 
 class Profile extends StatelessWidget {
   const Profile({super.key});
@@ -32,7 +33,10 @@ class Profile extends StatelessWidget {
                       backgroundColor: Colors.white,
                       radius: 22,
                       child: IconButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.push(context, MaterialPageRoute(
+                              builder: (context)=>EditProfile()));
+                          },
                           icon: Icon(
                             Icons.edit,
                             size: 30,

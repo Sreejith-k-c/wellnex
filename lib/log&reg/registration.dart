@@ -1,5 +1,8 @@
+import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
+import 'package:wellnex/database/hive_database/hivedb.dart';
 import 'package:wellnex/log&reg/login.dart';
+import 'package:wellnex/models/hiveModel/user_model.dart';
 
 class Registration extends StatefulWidget {
   const Registration({super.key});
@@ -138,24 +141,9 @@ class _RegistrationState extends State<Registration> {
                     ),
                   ),
                   InkWell(
-                    onTap: (){
-                      if (name_ctrl.text.isEmpty ||
-                          phone_ctrl.text.isEmpty ||
-                          email_ctrl.text.isEmpty ||
-                          pass_crtl.text.isEmpty ||
-                          cpass_crtl.text.isEmpty) {
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          SnackBar(content: Text("Please fill all fields")),
-                        );
-                      }else if (pass_crtl.text != cpass_crtl.text){
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          SnackBar(content: Text("Password do not match"))
-                        );
-                      }else{
-                          Navigator.push(context,
-                       MaterialPageRoute(
-                        builder: (context)=>LoginPage()));
-                      }
+                    onTap: () async{
+                      final userlist=await HiveDb.instance.getUser();
+                      validateSignUp(context,userlist);
                     },
                     child: Padding(
                       padding: const EdgeInsets.all(8.0),
@@ -183,5 +171,55 @@ class _RegistrationState extends State<Registration> {
         ),
       ),
     );
+  }
+
+  void validateSignUp(BuildContext context, List<User> userlist) async {
+    final uname = email_ctrl.text.trim();
+    final pwd = pass_crtl.text.trim();
+    bool userFound = false;
+    final validateEmail = EmailValidator.validate(uname);
+    if(uname != "" && pwd != "") {
+      if (validateEmail == true) {
+        await Future.forEach(userlist, (singleUser) {
+          if (singleUser.email == uname) {
+            userFound = true;
+          } else {
+            userFound = false;
+          }
+        });
+        if (userFound == true) {
+          ScaffoldMessenger.of(context)
+              .showSnackBar(SnackBar(content: Text("User Already Exist!!")));
+        } else {
+          final validatePassword = validatePassWord(context, pwd);
+          if (validatePassword == true) {
+            final user = User(email: uname, password: pwd);
+            await HiveDb.instance.addUser(user); // user added to hive db
+            
+            ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(content: Text("User Registration Success")));
+                Navigator.of(context)
+                .push(MaterialPageRoute(builder: (context) => LoginPage()));
+          }
+        }
+      } else {
+        ScaffoldMessenger.of(context)
+            .showSnackBar(SnackBar(content: Text("Enter a Valid Email!!!")));
+      }
+    }else{
+      ScaffoldMessenger.of(context)
+          .showSnackBar(SnackBar(content: Text("Field Must Not be Empty!!!")));
+    }
+  }
+  
+  validatePassWord(BuildContext context, String pwd) {
+    if (pwd.length <6){
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text("Password length should be > 6 !!"))
+      );
+      return false;
+    }else{
+      return true;
+    }
   }
 }

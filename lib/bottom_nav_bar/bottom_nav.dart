@@ -2,8 +2,9 @@ import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:wellnex/homepage/diet_plan.dart';
 import 'package:wellnex/homepage/male_homepage.dart';
+import 'package:wellnex/homepage/meditation.dart';
 import 'package:wellnex/homepage/my_progress.dart';
-import 'package:wellnex/homepage/profile.dart';
+import 'package:wellnex/profile_page/profile.dart';
 
 class BottomNavigation extends StatefulWidget {
   const BottomNavigation({super.key});
@@ -16,6 +17,7 @@ class _BottomNavigationState extends State<BottomNavigation> {
   final _pages=[
     HomeMale(),
     DietPlan(),
+    MeditationPage(),
     ProgressPage()
   ];
   var _currentIndex=0;
@@ -33,6 +35,7 @@ class _BottomNavigationState extends State<BottomNavigation> {
         items: [
         Icon(Icons.fitness_center_sharp,color: Colors.white),
         Icon(Icons.food_bank_sharp,color: Colors.white,),
+        Icon(Icons.mediation,color: Colors.white,),
         Icon(Icons.bar_chart,color: Colors.white,),
       ],
       onTap: (index){

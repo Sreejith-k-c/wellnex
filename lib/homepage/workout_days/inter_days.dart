@@ -35,7 +35,9 @@ class _InterDaysState extends State<InterDays> {
             child:Padding(
               padding: const EdgeInsets.all(8.0),
               child: InkWell(
-                onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context)=>WorkOutInter(excercise: InterWorkout.workoutPlanInter[index]['exercises']))),
+                onTap: () => Navigator.push(context, MaterialPageRoute(
+                  builder: (context)=>WorkOutInter(
+                    excercise: InterWorkout.workoutPlanInter[index]['exercises']))),
                 child: Container(
                   height: 110,
                   child: ListTile(

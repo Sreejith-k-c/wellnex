@@ -3,6 +3,7 @@ import 'package:wellnex/bottom_nav_bar/bottom_nav.dart';
 
 class ProfileCreation extends StatefulWidget {
   const ProfileCreation({super.key});
+  
 
   @override
   State<ProfileCreation> createState() => _ProfileCreationState();
@@ -112,57 +113,6 @@ class _ProfileCreationState extends State<ProfileCreation> {
                       ),
                     ),
                   ),
-                  // Padding(
-                  //   padding: const EdgeInsets.all(8.0),
-                  //   child: Container(
-                  //     height: 60,
-                  //     decoration: BoxDecoration(
-                  //       color: Colors.white.withOpacity(0.4),
-                  //       borderRadius: BorderRadius.circular(15),
-                  //     ),
-                  //     child: Row(
-                  //       children: [
-                  //         Expanded(
-                  //           child: DropdownButtonHideUnderline(
-                  //             child: DropdownButton(
-                  //               items: ["Beginner", "Intermediate", "Advanced"]
-                  //                   .map((name) => DropdownMenuItem(
-                  //                         value: name,
-                  //                         child: Text(
-                  //                           name,
-                  //                           style: TextStyle(
-                  //                             color: Colors.black,
-                  //                             fontSize: 14,
-                  //                           ),
-                  //                         ),
-                  //                       ))
-                  //                   .toList(),
-                  //               onChanged: (value) {
-                  //                 setState(() {
-                  //                   selectedLevel = value.toString();
-                  //                 });
-                  //               },
-                  //               isExpanded: true,
-                  //               hint: Padding(
-                  //                 padding: const EdgeInsets.all(8.0),
-                  //                 child: Text(
-                  //                   selectedLevel,
-                  //                   style: TextStyle(
-                  //                     color: Colors.black,
-                  //                     fontSize: 18,
-                  //                   ),
-                  //                 ),
-                  //               ),
-                  //             ),
-                  //           ),
-                  //         ),
-                  //         const SizedBox(
-                  //           width: 8,
-                  //         )
-                  //       ],
-                  //     ),
-                  //   ),
-                  // ),
                   Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: TextField(

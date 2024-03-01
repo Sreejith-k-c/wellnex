@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:wellnex/complete_profile/profile_creation.dart';
+import 'package:wellnex/database/hive_database/hivedb.dart';
 import 'package:wellnex/log&reg/registration.dart';
+import 'package:wellnex/models/hiveModel/user_model.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -84,10 +87,9 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                   InkWell(
                     onTap: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => Registration()));
+                      Navigator.of(context).push(
+                        MaterialPageRoute(builder: (context)=>Registration())
+                      );
                     },
                     child: Padding(
                       padding: const EdgeInsets.all(8.0),
@@ -111,11 +113,9 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                   ),
                   InkWell(
-                    onTap: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => ProfileCreation()));
+                    onTap: () async{
+                     final users=await HiveDb.instance.getUser();
+                      checkUserExist(context,users);
                     },
                     child: Padding(
                       padding: const EdgeInsets.all(8.0),
@@ -145,5 +145,30 @@ class _LoginPageState extends State<LoginPage> {
         ),
       ),
     );
+  }
+
+  var username;
+  Future <void> checkUserExist(BuildContext context, List<User> users) async{
+    final lemail=email_ctrl.text.trim();
+    final lpass=pass_crtl.text.trim();
+    bool userFound=false;
+    if(lemail != "" && lpass !=""){
+      await Future.forEach(users, (singleUser) {
+        if(lemail==singleUser.email && lpass == singleUser.password){
+        username=  singleUser.name;
+          userFound=true;
+          print("///////////////////////////////////////////${singleUser.name}");
+        }else{
+          userFound=false;
+        }
+      });
+      if(userFound==true){
+        Get.offAll(ProfileCreation());
+      }else{
+        Get.snackbar('Faild', 'User Not Exist');
+      }
+    }else{
+      Get.snackbar('Error', 'Fields Must Not Be Empty');
+    }
   }
 }
