@@ -10,48 +10,60 @@ class WorkOutInter extends StatefulWidget {
 class _WorkOutInterState extends State<WorkOutInter> {
   int currentExerciseIndex = 0;
 
-  @override
+   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.black,
       body: PageView.builder(
-        itemCount: widget.excercise.length,
+        itemCount: widget.excercise.length + 1,
         onPageChanged: (index) {
           setState(() {
             currentExerciseIndex = index;
           });
         },
         itemBuilder: (context, index) {
-          return Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Container(
-              width: MediaQuery.of(context).size.width,
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(50),
+          if (index == widget.excercise.length) {
+
+            // Progress
+            
+            return Center(
+              child: Text(
+                'Workout Progress',
+                style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold, color: Colors.white),
               ),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Expanded(
-                    child: Image.asset(widget.excercise[index]['images']),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Text(
-                      widget.excercise[index]['name'],
-                      style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+            );
+          } else {
+            return Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Container(
+                width: MediaQuery.of(context).size.width,
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(50),
+                ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Expanded(
+                      child: Image.asset(widget.excercise[index]['images']),
                     ),
-                  ),
-                  Text(
-                    widget.excercise[index]['sets'],
-                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-                  ),
-                ],
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text(
+                        widget.excercise[index]['name'],
+                        style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+                      ),
+                    ),
+                    Text(
+                      widget.excercise[index]['sets'],
+                      style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                    ),
+                  ],
+                ),
               ),
-            ),
-          );
+            );
+          }
         },
       ),
     );

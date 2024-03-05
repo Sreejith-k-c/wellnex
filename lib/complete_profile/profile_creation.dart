@@ -116,21 +116,6 @@ class _ProfileCreationState extends State<ProfileCreation> {
                   Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: TextField(
-                      controller: dobController,
-                      decoration: InputDecoration(
-                        hintText: "Date of Birth",
-                        hintStyle: TextStyle(color: Colors.black),
-                        filled: true,
-                        fillColor: Colors.white.withOpacity(0.4),
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(10.0),
-                        ),
-                      ),
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: TextField(
                       decoration: InputDecoration(
                         hintText: "Age",
                         hintStyle: TextStyle(color: Colors.black),
