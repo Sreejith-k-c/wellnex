@@ -60,7 +60,7 @@ static List<Map<String, dynamic>> workoutPlanInter = [
   },
   {
     'day': 'Day 6',
-    'workout' : '  Full Body Strength and Conditioning Circuit',
+    'workout' : '  Full Body Strength',
     'exercises': [
       {'name': 'Squat', 'sets': '12 reps','images':'assets/gif/Squats.gif'},
       {'name': 'Push-ups', 'sets': '10 reps','images':'assets/gif/pushup.gif'},

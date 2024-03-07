@@ -59,53 +59,75 @@ class _WorkOutBegState extends State<WorkOutBeg> {
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(50),
               ),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Expanded(
-                    child: Image.asset(widget.excercise[currentExerciseIndex]['images']),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Text(
-                      widget.excercise[currentExerciseIndex]['name'],
-                      style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
-                    ),
-                  ),
-                  Text(
-                    widget.excercise[currentExerciseIndex]['sets'],
-                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-                  ),
-                  SizedBox(height: 50),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: InkWell(
-                      onTap: (){
-                        if (currentExerciseIndex == widget.excercise.length - 1) {
-                          navigateToProgressPage();
-                        } else {
-                          goToNextExercise();
-                        }
-                      },
-                      child: Container(
-                        height: 50,
-                        width: 120,
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(20)
-                        ),
-                        child: Center(
-                          child: Text(
-                            getNextButtonText(),
-                            style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),
-                          ),
+              child: widget.excercise.isEmpty
+                  ? Center(
+                      child: Text(
+                        "No exercises for Today",
+                        style: TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
                         ),
                       ),
+                    )
+                  : Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Expanded(
+                          child: Image.asset(
+                            widget.excercise[currentExerciseIndex]['images'],
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Text(
+                            widget.excercise[currentExerciseIndex]['name'],
+                            style: TextStyle(
+                              fontSize: 30,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ),
+                        Text(
+                          widget.excercise[currentExerciseIndex]['sets'],
+                          style: TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        SizedBox(height: 50),
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: InkWell(
+                            onTap: () {
+                              if (currentExerciseIndex ==
+                                  widget.excercise.length - 1) {
+                                navigateToProgressPage();
+                              } else {
+                                goToNextExercise();
+                              }
+                            },
+                            child: Container(
+                              height: 50,
+                              width: 120,
+                              decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.circular(20),
+                              ),
+                              child: Center(
+                                child: Text(
+                                  getNextButtonText(),
+                                  style: TextStyle(
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
-                  ),
-                ],
-              ),
             ),
           ),
         ],

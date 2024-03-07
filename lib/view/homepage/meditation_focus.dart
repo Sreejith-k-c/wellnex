@@ -16,7 +16,7 @@ class _MeditationFocusState extends State<MeditationFocus> {
   final player = AudioPlayer();
 
   Future<void> playSound() async {
-    String audioPath = "music/binkuno.mp3";
+    String audioPath = "music/focus.mp3";
     await player.play(AssetSource(audioPath));
   }
 
@@ -29,6 +29,7 @@ class _MeditationFocusState extends State<MeditationFocus> {
   @override
   void dispose() {
     super.dispose();
+    player.dispose();
   }
 
   void startMeditation() {
@@ -45,6 +46,8 @@ class _MeditationFocusState extends State<MeditationFocus> {
         }
       });
     });
+
+    playSound();
   }
 
   void stopMeditation() {
@@ -54,6 +57,7 @@ class _MeditationFocusState extends State<MeditationFocus> {
     });
 
     _timer.cancel();
+    player.stop();
   }
 
   @override

@@ -58,9 +58,8 @@ class AdvWorkout{
   },
   {
     'day': 'Day 6 ',
-    'workout' : 'Full Body Strength and Power',
+    'workout' : 'Full Body Strength',
     'exercises': [
-      {'name': 'Power Cleans', 'sets': '5 sets of 3-5 reps'},
       {'name': 'Front Squats', 'sets': '4 sets of 6-8 reps','images':'assets/gif/Squats.gif'},
       {'name': 'Bench Press', 'sets': '4 sets of 6-8 reps','images':'assets/gif/benchpress.gif'},
       {'name': 'Pull-ups (Weighted if necessary)', 'sets': '4 sets of 6-8 reps','images':'assets/gif/Pull-ups or Assisted Pull-ups.gif'},

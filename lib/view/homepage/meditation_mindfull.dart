@@ -29,6 +29,7 @@ class _MeditationMindfullState extends State<MeditationMindfull> {
   @override
   void dispose() {
     super.dispose();
+    player.dispose();
   }
 
   void startMeditation() {
@@ -45,6 +46,8 @@ class _MeditationMindfullState extends State<MeditationMindfull> {
         }
       });
     });
+
+    playSound();
   }
 
   void stopMeditation() {
@@ -54,6 +57,7 @@ class _MeditationMindfullState extends State<MeditationMindfull> {
     });
 
     _timer.cancel();
+    player.stop();
   }
 
   @override
@@ -91,7 +95,6 @@ class _MeditationMindfullState extends State<MeditationMindfull> {
                       InkWell(
                         onTap: () {
                           isMeditating ? null : startMeditation();
-                          playSound();
                         },
                         child: Padding(
                           padding: const EdgeInsets.all(8.0),

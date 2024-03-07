@@ -58,7 +58,17 @@ int currentExerciseIndex = 0;
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(50),
               ),
-              child: Column(
+              child: widget.excercise.isEmpty
+                  ? Center(
+                      child: Text(
+                        "No exercises for  Today",
+                        style: TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    )
+              : Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
