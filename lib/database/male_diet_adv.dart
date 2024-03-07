@@ -8,8 +8,7 @@ class AdvancedDiet {
         'Lunch: Grilled chicken breast with quinoa, mixed greens, cherry tomatoes, and avocado.',
         'Snack: Protein shake with banana and peanut butter.',
         'Dinner: Baked salmon with sweet potato wedges and steamed broccoli.',
-        'Total Protein: Approximately 150-170 grams',
-        'Total Calories: Approximately 2000-2200 calories'
+        'Total Protein & Calories: Approximately 150-170 grams Protiens & 2000-2200 calories',
       ]
     },
     {
@@ -20,8 +19,7 @@ class AdvancedDiet {
         'Lunch: Turkey and avocado wrap with whole wheat tortilla, served with a side salad.',
         'Snack: Apple slices with almond butter.',
         'Dinner: Stir-fried tofu with quinoa, mixed vegetables, and a teriyaki glaze.',
-        'Total Protein: Approximately 140-160 grams',
-        'Total Calories: Approximately 1900-2100 calories'
+        'Total Protein & Calories: Approximately 140-160 grams Protiens & 1900-2100 calories',
       ]
     },
     {
@@ -32,8 +30,7 @@ class AdvancedDiet {
         'Lunch: Grilled shrimp salad with mixed greens, quinoa, cucumber, tomato, and balsamic vinaigrette.',
         'Snack: Carrot sticks with hummus.',
         'Dinner: Lean beef stir-fry with brown rice, bell peppers, broccoli, and snap peas.',
-        'Total Protein: Approximately 160-180 grams',
-        'Total Calories: Approximately 2100-2300 calories'
+        'Total Protein & Calories: Approximately 160-180 grams Protiens & 2100-2300 calories',
       ]
     },
     {
@@ -44,8 +41,7 @@ class AdvancedDiet {
         'Lunch: Grilled chicken Caesar salad with whole grain croutons and shaved Parmesan cheese.',
         'Snack: Protein bar and a small apple.',
         'Dinner: Baked cod with quinoa, roasted Brussels sprouts, and a squeeze of lemon.',
-        'Total Protein: Approximately 150-170 grams',
-        'Total Calories: Approximately 2000-2200 calories'
+        'Total Protein & Calories: Approximately 150-170 grams Protiens & 2000-2200 calories',
       ]
     },
     {
@@ -56,8 +52,7 @@ class AdvancedDiet {
         'Lunch: Quinoa salad with chickpeas, cherry tomatoes, feta cheese, grilled chicken, and lemon-tahini dressing.',
         'Snack: Protein shake with almond milk and banana.',
         'Dinner: Grilled steak with roasted sweet potato wedges and sautéed spinach.',
-        'Total Protein: Approximately 160-180 grams',
-        'Total Calories: Approximately 2100-2300 calories'
+        'Total Protein & Calories: Approximately 160-180 grams Protiens & 2100-2300 calories',
       ]
     },
     {
@@ -68,8 +63,7 @@ class AdvancedDiet {
         'Lunch: Tuna salad with mixed greens, avocado, cherry tomatoes, and a whole grain roll.',
         'Snack: Protein bar and a small apple.',
         'Dinner: Baked chicken breast with quinoa, steamed asparagus, and a squeeze of fresh lemon.',
-        'Total Protein: Approximately 150-170 grams',
-        'Total Calories: Approximately 2000-2200 calories'
+        'Total Protein & Calories: Approximately 150-170 grams Protiens & 2000-2200 calories',
       ]
     },
     {
@@ -80,8 +74,7 @@ class AdvancedDiet {
         'Lunch: Grilled salmon with wild rice, roasted vegetables, and a squeeze of lime.',
         'Snack: Carrot sticks with hummus.',
         'Dinner: Turkey meatballs with whole wheat spaghetti and marinara sauce, served with a side of steamed broccoli.',
-        'Total Protein: Approximately 160-180 grams',
-        'Total Calories: Approximately 2100-2300 calories'
+        'Total Protein & Calories: Approximately 160-180 grams Protiens & 2100-2300 calories',
       ]
     },
   ];

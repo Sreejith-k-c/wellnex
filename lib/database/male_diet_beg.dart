@@ -8,8 +8,7 @@ static List<Map<String, dynamic>> dietPlanBeg = [
       'Lunch: Grilled chicken breast (6 oz) with quinoa (1/2 cup cooked) and steamed vegetables.',
       'Snack: Carrot sticks with hummus (2 tbsp).',
       'Dinner: Baked salmon (6 oz) with sweet potato (1 medium) and broccoli (1 cup).',
-      'Total Protein: Approximately 110-120 grams',
-      'Total Calories: Approximately 1600-1800 calories'
+      'Total Protein & Calories: Approximately 110-120 grams Protiens & 1600-1800 calories',
     ]
   },
   {
@@ -20,8 +19,7 @@ static List<Map<String, dynamic>> dietPlanBeg = [
       'Lunch: Turkey breast slices (4 oz) and avocado (1/2) in a whole grain wrap.',
       'Snack: Cottage cheese (1/2 cup) with pineapple chunks.',
       'Dinner: Stir-fried tofu (6 oz) with brown rice (1/2 cup cooked) and mixed vegetables.',
-      'Total Protein: Approximately 90-100 grams',
-      'Total Calories: Approximately 1400-1600 calories'
+      'Total Protein & Calories: Approximately 90-100 grams Protiens & 1400-1600 calories',
     ]
   },
   {
@@ -32,8 +30,7 @@ static List<Map<String, dynamic>> dietPlanBeg = [
       'Lunch: Grilled shrimp (6 oz) salad with mixed greens, tomatoes, and balsamic vinaigrette.',
       'Snack: Celery sticks with almond butter (2 tbsp).',
       'Dinner: Lean beef stir-fry (6 oz) with bell peppers, onions, and quinoa (1/2 cup cooked).',
-      'Total Protein: Approximately 100-110 grams',
-      'Total Calories: Approximately 1500-1700 calories'
+      'Total Protein & Calories: Approximately 100-110 grams Protiens & 1500-1700 calories',
     ]
   },
   {
@@ -44,8 +41,7 @@ static List<Map<String, dynamic>> dietPlanBeg = [
       'Lunch: Whole wheat pasta (1 cup cooked) with marinara sauce and grilled vegetables.',
       'Snack: Whole grain crackers with cheese slices.',
       'Dinner: Grilled chicken breast (6 oz) with roasted sweet potatoes and asparagus (1 cup).',
-      'Total Protein: Approximately 90-100 grams',
-      'Total Calories: Approximately 1500-1700 calories'
+      'Total Protein & Calories: Approximately 90-100 grams Protiens & 1500-1700 calories',
     ]
   },
   {
@@ -56,8 +52,7 @@ static List<Map<String, dynamic>> dietPlanBeg = [
       'Lunch: Quinoa (1 cup cooked) salad with chickpeas, cucumbers, tomatoes, and feta cheese (1 oz).',
       'Snack: Sliced bell peppers with guacamole (2 tbsp).',
       'Dinner: Baked tilapia (6 oz) with quinoa pilaf and steamed broccoli (1 cup).',
-      'Total Protein: Approximately 100-110 grams',
-      'Total Calories: Approximately 1400-1600 calories'
+      'Total Protein & Calories: Approximately 100-110 grams Protiens & 1400-1600 calories',
     ]
   },
   {
@@ -68,8 +63,7 @@ static List<Map<String, dynamic>> dietPlanBeg = [
       'Lunch: Lentil soup with a whole grain roll.',
       'Snack: Cherry tomatoes with mozzarella cheese (1 oz).',
       'Dinner: Turkey meatballs (6 oz) with whole wheat pasta and marinara sauce.',
-      'Total Protein: Approximately 80-90 grams',
-      'Total Calories: Approximately 1400-1600 calories'
+      'Total Protein & Calories: Approximately 80-90 grams Protiens & 1400-1600 calories',
     ]
   },
   {
@@ -80,8 +74,7 @@ static List<Map<String, dynamic>> dietPlanBeg = [
       'Lunch: Grilled vegetable sandwich with hummus on whole grain bread.',
       'Snack: Sliced cucumber with tzatziki sauce (2 tbsp).',
       'Dinner: Baked chicken breast (6 oz) with quinoa (1/2 cup cooked) and steamed vegetables.',
-      'Total Protein: Approximately 100-110 grams',
-      'Total Calories: Approximately 1500-1700 calories'
+      'Total Protein & Calories: Approximately 100-110 grams Protiens & 1500-1700 calories',
     ]
   },
 ];

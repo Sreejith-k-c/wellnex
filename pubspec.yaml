@@ -48,6 +48,8 @@ dependencies:
   provider: ^6.1.1
   shared_preferences: ^2.2.2
   get: ^4.6.6
+  audioplayers: ^5.2.1
+  path_provider: ^2.1.2
 
 dev_dependencies:
   flutter_test:
@@ -76,6 +78,7 @@ flutter:
     - assets/
     - assets/lottie_animations/
     - assets/gif/
+    - assets/music/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
