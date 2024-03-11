@@ -12,11 +12,11 @@ class Registration extends StatefulWidget {
 }
 
 class _RegistrationState extends State<Registration> {
-  final name_ctrl=TextEditingController();
-  final phone_ctrl=TextEditingController();
-  final email_ctrl=TextEditingController();
-  final pass_crtl=TextEditingController();
-  final cpass_crtl=TextEditingController();
+  final name_ctrl = TextEditingController();
+  final phone_ctrl = TextEditingController();
+  final email_ctrl = TextEditingController();
+  final pass_crtl = TextEditingController();
+  final cpass_crtl = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -65,8 +65,7 @@ class _RegistrationState extends State<Registration> {
                         filled: true,
                         fillColor: Colors.white.withOpacity(0.4),
                         border: OutlineInputBorder(
-                          borderRadius:
-                              BorderRadius.circular(10.0),
+                          borderRadius: BorderRadius.circular(10.0),
                         ),
                       ),
                       style: TextStyle(color: Colors.white),
@@ -82,8 +81,7 @@ class _RegistrationState extends State<Registration> {
                         filled: true,
                         fillColor: Colors.white.withOpacity(0.4),
                         border: OutlineInputBorder(
-                          borderRadius:
-                              BorderRadius.circular(10.0),
+                          borderRadius: BorderRadius.circular(10.0),
                         ),
                       ),
                       style: TextStyle(color: Colors.white),
@@ -99,8 +97,7 @@ class _RegistrationState extends State<Registration> {
                         filled: true,
                         fillColor: Colors.white.withOpacity(0.4),
                         border: OutlineInputBorder(
-                          borderRadius:
-                              BorderRadius.circular(10.0),
+                          borderRadius: BorderRadius.circular(10.0),
                         ),
                       ),
                       style: TextStyle(color: Colors.white),
@@ -116,8 +113,7 @@ class _RegistrationState extends State<Registration> {
                         filled: true,
                         fillColor: Colors.white.withOpacity(0.4),
                         border: OutlineInputBorder(
-                          borderRadius:
-                              BorderRadius.circular(10.0),
+                          borderRadius: BorderRadius.circular(10.0),
                         ),
                       ),
                       style: TextStyle(color: Colors.white),
@@ -126,24 +122,23 @@ class _RegistrationState extends State<Registration> {
                   Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: TextField(
-                      controller:cpass_crtl,
+                      controller: cpass_crtl,
                       decoration: InputDecoration(
                         hintText: "Confirm Password",
                         hintStyle: TextStyle(color: Colors.black),
                         filled: true,
                         fillColor: Colors.white.withOpacity(0.4),
                         border: OutlineInputBorder(
-                          borderRadius:
-                              BorderRadius.circular(10.0),
+                          borderRadius: BorderRadius.circular(10.0),
                         ),
                       ),
                       style: TextStyle(color: Colors.white),
                     ),
                   ),
                   InkWell(
-                    onTap: () async{
-                      final userlist=await HiveDb.instance.getUser();
-                      validateSignUp(context,userlist);
+                    onTap: () async {
+                      final userlist = await HiveDb.instance.getUser();
+                      validateSignUp(context, userlist);
                     },
                     child: Padding(
                       padding: const EdgeInsets.all(8.0),
@@ -156,10 +151,10 @@ class _RegistrationState extends State<Registration> {
                         ),
                         child: Center(
                           child: Text("Register",
-                          style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 20,fontWeight: FontWeight.bold
-                          ),),
+                              style: TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.bold)),
                         ),
                       ),
                     ),
@@ -176,49 +171,52 @@ class _RegistrationState extends State<Registration> {
   void validateSignUp(BuildContext context, List<User> userlist) async {
     final uname = email_ctrl.text.trim();
     final pwd = pass_crtl.text.trim();
+    final confirmPwd =
+        cpass_crtl.text.trim();
     bool userFound = false;
     final validateEmail = EmailValidator.validate(uname);
-    if(uname != "" && pwd != "") {
+    if (uname.isNotEmpty && pwd.isNotEmpty && confirmPwd.isNotEmpty) {
       if (validateEmail == true) {
-        await Future.forEach(userlist, (singleUser) {
-          if (singleUser.email == uname) {
-            userFound = true;
+        if (pwd == confirmPwd) {
+          await Future.forEach(userlist, (singleUser) {
+            if (singleUser.email == uname) {
+              userFound = true;
+            }
+          });
+          if (userFound) {
+            ScaffoldMessenger.of(context)
+                .showSnackBar(SnackBar(content: Text("User Already Exists!!")));
           } else {
-            userFound = false;
+            final validatePassword = validatePassWord(context, pwd);
+            if (validatePassword) {
+              final user = User(email: uname, password: pwd);
+              await HiveDb.instance.addUser(user);
+              ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(content: Text("User Registration Successful")));
+              Navigator.of(context)
+                  .push(MaterialPageRoute(builder: (context) => LoginPage()));
+            }
           }
-        });
-        if (userFound == true) {
-          ScaffoldMessenger.of(context)
-              .showSnackBar(SnackBar(content: Text("User Already Exist!!")));
         } else {
-          final validatePassword = validatePassWord(context, pwd);
-          if (validatePassword == true) {
-            final user = User(email: uname, password: pwd);
-            await HiveDb.instance.addUser(user); // user added to hive db
-            
-            ScaffoldMessenger.of(context).showSnackBar(
-                SnackBar(content: Text("User Registration Success")));
-                Navigator.of(context)
-                .push(MaterialPageRoute(builder: (context) => LoginPage()));
-          }
+          ScaffoldMessenger.of(context)
+              .showSnackBar(SnackBar(content: Text("Passwords do not match!")));
         }
       } else {
-        ScaffoldMessenger.of(context)
-            .showSnackBar(SnackBar(content: Text("Enter a Valid Email!!!")));
+        ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(content: Text("Enter a Valid Email Address!")));
       }
-    }else{
+    } else {
       ScaffoldMessenger.of(context)
-          .showSnackBar(SnackBar(content: Text("Field Must Not be Empty!!!")));
+          .showSnackBar(SnackBar(content: Text("Fields Must Not be Empty!")));
     }
   }
-  
+
   validatePassWord(BuildContext context, String pwd) {
-    if (pwd.length <6){
+    if (pwd.length < 6) {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text("Password length should be > 6 !!"))
-      );
+          SnackBar(content: Text("Password length should be > 6 !!")));
       return false;
-    }else{
+    } else {
       return true;
     }
   }
